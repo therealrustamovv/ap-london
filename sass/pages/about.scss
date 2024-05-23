@@ -1,0 +1,44 @@
+@use "../base/fonts";
+@use "../layout/container";
+@use "../utils/functions" as func;
+@use "../utils/mixins" as mxn;
+@use "../utils/variables" as var;
+@use "../utils/helpers";
+@use "../global";
+@use "../themes/dark-about";
+.main {
+  padding: 170px 0px 130px;
+}
+.about {
+  &__center {
+    @extend %flex-center;
+    text-align: center;
+    margin-bottom: 40px;
+    &__h3 {
+      color: var.$text-color;
+      font-family: "Cera Round Pro500";
+      font-size: 64px;
+      line-height: 130%;
+      letter-spacing: 1.92px;
+      text-transform: capitalize;
+    }
+    &__svg {
+      fill: var.$primary-color;
+      transform: rotateZ(180deg);
+    }
+  }
+  &__text {
+    max-width: 720px;
+    color: var.$text-color;
+    font-family: "Open Sans400";
+    font-size: 20px;
+    line-height: 32px; 
+    letter-spacing: 0.8px;
+    opacity: 0.8;
+    margin-bottom: 30px;
+  }
+  &__img{
+    width: 100%;
+    margin-bottom: 30px;
+  }
+}

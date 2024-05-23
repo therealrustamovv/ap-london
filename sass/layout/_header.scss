@@ -1,0 +1,55 @@
+@use "../utils/variables" as var;
+@use "../utils/mixins" as mxn;
+@use "../utils/helpers";
+
+.nav {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  background-color: var.$primary-color !important;
+  z-index: 10;
+  padding: 26px 0px;
+  transition: all 500ms;
+  &__img {
+    max-width: 135px;
+  }
+  &__toggler {
+    color: var.$white-color;
+    border: 1px solid var.$white-color;
+    padding: 5px 12px;
+    border-radius: 5px;
+  }
+  &__link {
+    color: var.$white-color;
+    font-family: "Open Sans400";
+    font-size: 16px;
+    letter-spacing: 0.64px;
+    &:hover {
+      color: var.$white-color;
+    }
+  }
+  &__btn {
+    padding: 10px 40px;
+    border-radius: 100px;
+    border: 1px solid var.$white-color;
+    color: var.$white-color;
+    font-family: "Open Sans600";
+    font-size: 16px;
+    line-height: 175%;
+    letter-spacing: 0.8px;
+    text-transform: capitalize;
+    transition: all 500ms;
+    &:hover {
+      background-color: var.$white-color;
+      color: var.$primary-color;
+    }
+    @media (max-width: 1200px) {
+      & {
+        display: none;
+      }
+    }
+  }
+}
+.offcanvas {
+  background-color: var.$primary-color;
+}

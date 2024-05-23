@@ -1,0 +1,5 @@
+@use "../utils/variables" as var;
+
+@function containerWidth($width, $padding, $mobilePadding: var.$mobilePadding) {
+  @return $width - 2 * $padding + 2 * $mobilePadding + px;
+}

@@ -1,0 +1,672 @@
+@use "../base/fonts";
+@use "../layout/container";
+@use "../utils/functions" as func;
+@use "../utils/mixins" as mxn;
+@use "../utils/variables" as var;
+@use "../utils/helpers";
+@use "../global";
+@use "../themes/dark-home";
+
+// header start
+.header {
+  background-color: var.$primary-color;
+  position: relative;
+  &__info {
+    @extend %flex-between-center;
+    padding: 180px 0px 230px;
+    @media (max-width: 1280px) {
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 50px;
+      padding-bottom: 100px;
+    }
+  }
+  &__h3 {
+    color: var.$white-color;
+    font-family: "Cera Round Pro700";
+    font-size: 23px;
+    line-height: 130%;
+    letter-spacing: 0.92px;
+    text-transform: capitalize;
+    margin-bottom: 25px;
+  }
+  &__title {
+    max-width: 555px;
+    color: var.$white-color;
+    font-family: "Cera Round Pro700";
+    font-size: 90px;
+    line-height: 130%;
+    letter-spacing: 3.6px;
+    text-transform: capitalize;
+    margin-bottom: 20px;
+    @media (max-width: 700px) {
+      font-size: 40px;
+      line-height: 50px;
+      letter-spacing: 1px;
+    }
+  }
+  &__text {
+    max-width: 453px;
+    color: var.$white-color;
+    font-family: "Open Sans400";
+    font-size: 16px;
+    line-height: 175%;
+    letter-spacing: 0.64px;
+    margin-bottom: 40px;
+  }
+  &__btn {
+    @include mxn.btn(8px 32px);
+  }
+  &__img {
+    max-width: 680px;
+    @media (max-width: 740px) {
+      width: 100%;
+    }
+  }
+  &__scroll {
+    width: 1px;
+    height: 60px;
+    background-color: var.$white-color;
+    margin-bottom: 24px;
+    transition: all 250ms;
+    &__title {
+      color: var.$white-color;
+      font-family: "Cera Round Pro700";
+      font-size: 16px;
+      line-height: 175%;
+      letter-spacing: 0.64px;
+      text-transform: uppercase;
+    }
+  }
+  &__position {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    right: 120px;
+    bottom: 50px;
+    transition: all 250ms;
+    &:hover .header__scroll {
+      transform: rotate(-90deg);
+    }
+    @media (max-width: 800px) {
+      display: none;
+    }
+  }
+}
+
+// main start
+// popular start
+.popular {
+  padding: 120px 0px;
+  background: #f8f8f8;
+  &__info {
+    @media (max-width: 530px) {
+      display: flex;
+      flex-direction: column;
+      gap: 80px;
+    }
+  }
+  &__max__title {
+    color: var.$primary-color;
+    font-family: "Cera Round Pro500";
+    font-size: 48px;
+    letter-spacing: 1.44px;
+    text-transform: capitalize;
+    margin-bottom: 40px;
+    @media (max-width: 430px) {
+      text-align: center;
+      width: 100%;
+    }
+  }
+  &__box {
+    @extend %flex-between-center;
+    @media (max-width: 1300px) {
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      gap: 30px;
+    }
+  }
+  &__card {
+    @extend %flex-center;
+    max-width: 310px;
+    padding: 20px 20px 40px 20px;
+    border-radius: 14px;
+    background: var.$white-color;
+    text-align: center;
+  }
+  &__img {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+  &__title {
+    color: var.$text-color;
+    text-align: center;
+    font-family: "Open Sans600";
+    font-size: 18px;
+    margin-bottom: 20px;
+    @media (max-width: 400px) {
+      font-size: 14px;
+      width: 200px;
+    }
+  }
+  &__icon {
+    color: #ffea28;
+    margin-bottom: 20px;
+    &:last-child {
+      color: #c1c1c1;
+    }
+  }
+  &__text {
+    color: var.$primary-color;
+    font-family: "Open Sans700";
+    font-size: 24px;
+  }
+}
+
+.carousel-control-next-icon {
+  background: url(../../asset/images/next.svg) no-repeat center/cover;
+}
+.carousel-control-prev-icon {
+  background: url(../../asset/images/prev.svg) no-repeat center/cover;
+}
+.carousel__next,
+.carousel__prev {
+  opacity: 1;
+  width: 50px;
+  height: 50px;
+  border: 1px solid var.$primary-color;
+  border-radius: 12px;
+  padding: 10px 15px;
+  top: -80px;
+  transition: all 500ms;
+  &:hover {
+    border: 1px solid #646464;
+    opacity: 0.5;
+  }
+}
+.carousel__prev {
+  right: 6%;
+  @media (max-width: 1000px) {
+    right: 10%;
+  }
+  @media (max-width: 600px) {
+    right: 15%;
+  }
+  @media (max-width: 400px) {
+    right: 25%;
+  }
+}
+
+// menu start
+.menu {
+  padding: 120px 0px;
+  &__box {
+    display: flex;
+    flex-wrap: wrap;
+    column-gap: 20px;
+    row-gap: 30px;
+    @media (max-width: 1360px) {
+      justify-content: center;
+    }
+  }
+  &__card {
+    border-radius: 14px;
+    border: 1px solid rgba(36, 36, 36, 0.1);
+    @media (max-width: 380px) {
+      width: 100%;
+    }
+  }
+  &__max__title {
+    color: var.$primary-color;
+    font-family: "Cera Round Pro500";
+    font-size: 48px;
+    letter-spacing: 1.44px;
+    text-transform: capitalize;
+    margin-bottom: 60px;
+  }
+  &__list {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 0px;
+    margin-bottom: 50px !important;
+    gap: 10px;
+    @media (max-width: 400px) {
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 20px;
+    }
+  }
+}
+.nav-pills .nav-link {
+  @include mxn.btn(
+    10px 30px,
+    var.$text-color,
+    100px,
+    1px solid var.$primary-color
+  ) {
+    &:hover {
+      background-color: var.$primary-color;
+      color: var.$white-color;
+    }
+  }
+}
+.nav-pills .nav-link.active {
+  background-color: var.$primary-color;
+  color: var.$white-color;
+}
+
+// test start
+.test {
+  padding: 100px 0px 170px;
+  background: #f4f4f4;
+  &__center {
+    @extend %flex-center;
+    text-align: center;
+    margin-bottom: 60px;
+    &__h3 {
+      color: var.$text-color;
+      font-family: "Cera Round Pro700";
+      font-size: 23px;
+      line-height: 130%;
+      letter-spacing: 0.92px;
+      text-transform: capitalize;
+      margin-bottom: 8px;
+    }
+    &__svg {
+      margin-bottom: 8px;
+    }
+    &__title {
+      color: var.$text-color;
+      font-family: "Cera Round Pro500";
+      font-size: 48px;
+      line-height: 130%;
+      letter-spacing: 1.44px;
+      text-transform: capitalize;
+    }
+  }
+  &__box {
+    @extend %flex-between-center;
+    gap: 35px;
+    @media (max-width: 1300px) {
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+  &__card {
+    max-width: 410px;
+    border-radius: 10px;
+    border: 1px solid rgba(51, 51, 51, 0.1);
+    background: var.$white-color;
+    padding: 30px 40px 30px 20px;
+    @media (max-width: 350px) {
+      width: 100%;
+    }
+  }
+  &__title {
+    color: #333;
+    font-family: "Inter600";
+    font-size: 24px;
+    line-height: 26px;
+    margin-bottom: 10px;
+  }
+  &__text {
+    max-width: 340px;
+    color: #333;
+    font-family: "Inter400";
+    font-size: 14px;
+    line-height: 22px;
+    margin-bottom: 20px;
+    opacity: 0.7;
+  }
+  &__exam {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    @media (max-width: 300px) {
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+  }
+  &__mine {
+    display: flex;
+    align-items: flex-start;
+    gap: 4px;
+  }
+  &__icon {
+    font-size: 16px;
+    color: #333333;
+    opacity: 0.5;
+  }
+  &__mine__text {
+    color: #333;
+    font-family: "Inter400";
+    font-size: 12px;
+    opacity: 0.5;
+  }
+  &__prev,
+  &__next {
+    opacity: 1;
+    width: 50px;
+    height: 50px;
+    border: 2px solid var.$primary-color;
+    border-radius: 12px;
+    padding: 10px 15px;
+    top: auto;
+    bottom: -100px;
+    transition: all 500ms;
+    &:hover {
+      border: 2px solid #646464;
+      opacity: 0.5;
+    }
+  }
+  &__prev {
+    left: 45%;
+    @media (max-width: 1100px) {
+      left: 25%;
+    }
+  }
+  &__next {
+    right: 45%;
+    @media (max-width: 1100px) {
+      right: 25%;
+    }
+  }
+}
+
+// news start
+.news {
+  padding: 120px 0px;
+  &__center {
+    @extend %flex-center;
+    text-align: center;
+    margin-bottom: 60px;
+    &__h3 {
+      color: var.$text-color;
+      font-family: "Cera Round Pro700";
+      font-size: 23px;
+      line-height: 130%;
+      letter-spacing: 0.92px;
+      text-transform: capitalize;
+      margin-bottom: 16px;
+    }
+    &__svg {
+      fill: var.$primary-color;
+    }
+    &__title {
+      color: var.$primary-color;
+      font-family: "Cera Round Pro500";
+      font-size: 48px;
+      line-height: 130%;
+      letter-spacing: 1.44px;
+      text-transform: capitalize;
+    }
+  }
+  &__box {
+    @extend %flex-between-center;
+    margin-bottom: 50px;
+    @media (max-width: 1300px) {
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      gap: 30px;
+    }
+  }
+  &__card {
+    max-width: 410px;
+    border-radius: 14px;
+    border: 1px solid rgba(36, 36, 36, 0.1);
+    background: var.$white-color;
+    padding-bottom: 30px;
+  }
+  &__img {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+  &__title {
+    max-width: 402px;
+    padding: 0px 20px;
+    color: var.$text-color;
+    font-family: "Cera Round Pro500";
+    font-size: 24px;
+    line-height: 32px;
+    text-transform: capitalize;
+    margin-bottom: 10px;
+    @media (max-width: 300px) {
+      font-size: 18px;
+    }
+  }
+  &__text {
+    max-width: 380px;
+    padding: 0px 20px;
+    color: #aaa;
+    font-family: "Open Sans400";
+    font-size: 14px;
+    line-height: 24px;
+    margin-bottom: 20px;
+  }
+  &__links {
+    padding: 0px 20px;
+    @extend %flex-between-center;
+    align-items: flex-start;
+    &__text {
+      color: var.$text-color;
+      font-family: "Open Sans400";
+      font-size: 14px;
+    }
+  }
+  &__link {
+    color: var.$primary-color;
+    font-family: "Cera Round Pro800";
+    font-size: 16px;
+    letter-spacing: 0.64px;
+  }
+  &__btn {
+    @include mxn.btn(
+      8px 32px,
+      var.$text-color,
+      100px,
+      1px solid var.$primary-color
+    ) {
+      &:hover {
+        background-color: var.$primary-color;
+        color: var.$white-color;
+      }
+    }
+    max-width: 150px;
+    display: flex;
+    margin: auto;
+  }
+}
+
+// table start
+.table {
+  position: relative;
+  background: url(../../asset/images/main-bg-img.png) no-repeat center/cover;
+  height: 763px;
+  margin-bottom: 120px;
+  &__info {
+    @extend %flex-center;
+    height: 100%;
+  }
+  &__btn {
+    z-index: 5;
+  }
+  &__icon {
+    background: transparent;
+    background: transparent !important;
+    color: var.$white-color !important;
+    width: 120px;
+    height: 120px;
+    font-size: 30px;
+    border: 3px solid var.$primary-color;
+    border-radius: 80px;
+    padding: 45px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: auto;
+    margin-bottom: auto;
+  }
+  &__img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    opacity: 1;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+  }
+  &__video {
+    border-radius: 15px;
+  }
+  &__content,
+  &__body {
+    border: none;
+  }
+  &__dialog {
+    border: none;
+    border-radius: 12px;
+    max-width: 600px;
+  }
+  &__view {
+    background-color: var.$primary-color;
+    color: var.$white-color;
+  }
+}
+
+// photo start
+.photo {
+  padding: 130px 0px;
+  background: #f4f4f4;
+  overflow-x: hidden;
+  &__info {
+    @extend %flex-between-center;
+    gap: 60px;
+  }
+  &__h3 {
+    color: var.$text-color;
+    font-family: "Cera Round Pro700";
+    font-size: 23px;
+    line-height: 130%;
+    letter-spacing: 0.92px;
+    text-transform: capitalize;
+    margin-bottom: 8px;
+  }
+  &__title {
+    color: #242424;
+    text-align: center;
+    font-family: "Cera Round Pro500";
+    font-size: 48px;
+    line-height: 130%;
+    letter-spacing: 1.44px;
+    text-transform: capitalize;
+    margin: 8px 0px 24px;
+  }
+  &__text {
+    max-width: 491px;
+    color: #aaa;
+    font-family: "Open Sans400";
+    font-size: 16px;
+    line-height: 175%; 
+    letter-spacing: 0.64px;
+    margin-bottom: 24px;
+  }
+  &__link{
+    @include mxn.btn(8px 32px, var.$text-color, 100px, 1px solid var.$primary-color){
+      &:hover{
+        background-color: var.$primary-color;
+        color: var.$white-color;
+      }
+    }
+  }
+  &__card {
+    position: relative;
+    transition: all 500ms;
+    width: 300px;
+  }
+  &__img {
+    width: 100%;
+    height: 100%;
+  }
+  &__team {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: url(../../asset/images/photo-black-bg.png) no-repeat
+      center/cover;
+    opacity: 0;
+    transition: all 500ms;
+  }
+  &__icon {
+    color: var.$white-color;
+    font-size: 50px;
+  }
+  &__card:hover &__team {
+    opacity: 1;
+  }
+}
+
+#team-carousel {
+  position: relative;
+  display: flex;
+  z-index: 3;
+}
+#team-carousel :is(.owl-prev, .owl-next) {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-color: red;
+  border: 2px solid #f53838;
+  transition: all 0.5s;
+  bottom: -80px;
+}
+#team-carousel .owl-prev {
+  right: 15%;
+}
+#team-carousel .owl-next {
+  opacity: 1;
+  right: 5%;
+  z-index: 1000;
+}
+
+#team-carousel .owl-dot span {
+  width: 30px;
+  height: 30px;
+  background: red;
+  transition: all 0.5s;
+}
+
+#team-carousel .owl-dot.active span {
+  width: 45px;
+  background: #f53838;
+}
+
+.owl-carousel.owl-drag .owl-item {
+  width: 300px !important;
+  margin-right: 32px;
+}
+#team-carousel .owl-stage {
+  display: flex;
+  z-index: 4;
+}

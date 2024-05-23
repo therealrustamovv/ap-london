@@ -1,0 +1,108 @@
+@use "../base/fonts";
+@use "../layout/container";
+@use "../utils/functions" as func;
+@use "../utils/mixins" as mxn;
+@use "../utils/variables" as var;
+@use "../utils/helpers";
+@use "../global";
+@use "../themes/dark-news";
+.main {
+  padding: 170px 0px 147px;
+}
+.news {
+  &__center {
+    @extend %flex-center;
+    text-align: center;
+    margin-bottom: 60px;
+    &__h3 {
+      color: var.$text-color;
+      font-family: "Cera Round Pro500";
+      font-size: 64px;
+      line-height: 130%;
+      letter-spacing: 1.92px;
+      text-transform: capitalize;
+    }
+    &__svg {
+      fill: var.$primary-color;
+      transform: rotateZ(180deg)
+    }
+  }
+  &__box {
+    @extend %flex-between-center;
+    flex-wrap: wrap;
+    column-gap: 35px;
+    row-gap: 40px;
+    margin-bottom: 50px;
+    @media (max-width: 1300px) {
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      gap: 40px;
+    }
+  }
+  &__card {
+    max-width: 410px;
+    border-radius: 14px;
+    border: 1px solid rgba(36, 36, 36, 0.1);
+    background: var.$white-color;
+    padding-bottom: 30px;
+  }
+  &__img {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+  &__title {
+    max-width: 402px;
+    padding: 0px 20px;
+    color: var.$text-color;
+    font-family: "Cera Round Pro500";
+    font-size: 24px;
+    line-height: 32px;
+    text-transform: capitalize;
+    margin-bottom: 10px;
+    @media (max-width: 300px) {
+      font-size: 18px;
+    }
+  }
+  &__text {
+    max-width: 380px;
+    padding: 0px 20px;
+    color: #aaa;
+    font-family: "Open Sans400";
+    font-size: 14px;
+    line-height: 24px;
+    margin-bottom: 20px;
+  }
+  &__links {
+    padding: 0px 20px;
+    @extend %flex-between-center;
+    align-items: flex-start;
+    &__text {
+      color: var.$text-color;
+      font-family: "Open Sans400";
+      font-size: 14px;
+    }
+  }
+  &__link {
+    color: var.$primary-color;
+    font-family: "Cera Round Pro800";
+    font-size: 16px;
+    letter-spacing: 0.64px;
+  }
+  &__btn {
+    @include mxn.btn(
+      8px 32px,
+      var.$text-color,
+      100px,
+      1px solid var.$primary-color
+    ) {
+      &:hover {
+        background-color: var.$primary-color;
+        color: var.$white-color;
+      }
+    }
+    max-width: 150px;
+    display: flex;
+    margin: auto;
+  }
+}

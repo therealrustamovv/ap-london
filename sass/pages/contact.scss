@@ -1,0 +1,182 @@
+@use "../base/fonts";
+@use "../layout/container";
+@use "../utils/functions" as func;
+@use "../utils/mixins" as mxn;
+@use "../utils/variables" as var;
+@use "../utils/helpers";
+@use "../global";
+@use "../themes/dark-contact";
+
+.main {
+  padding: 170px 0px 130px;
+}
+.contact {
+  &__center {
+    @extend %flex-center;
+    text-align: center;
+    margin-bottom: 40px;
+    &__h3 {
+      color: var.$text-color;
+      font-family: "Cera Round Pro500";
+      font-size: 64px;
+      line-height: 130%;
+      letter-spacing: 1.92px;
+      text-transform: capitalize;
+    }
+    &__svg {
+      fill: var.$primary-color;
+      transform: rotateZ(180deg);
+    }
+  }
+  &__info {
+    @extend %flex-between-center;
+    margin-bottom: 110px;
+    @media (max-width: 1280px) {
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 50px;
+    }
+  }
+  &__right {
+    padding: 40px 40px 50px;
+    border-radius: 14px;
+    border: 1px solid rgba(36, 36, 36, 0.1);
+    background: var.$white-color;
+    @media (max-width: 840px) {
+      width: 100%;
+    }
+  }
+  &__left {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    &__title {
+      color: #333;
+      font-family: "Open Sans600";
+      font-size: 22px;
+      line-height: 34px;
+      margin-bottom: 3px;
+    }
+    &__text {
+      color: #333;
+      font-family: "Open Sans400";
+      font-size: 14px;
+      opacity: 0.7;
+    }
+  }
+  &__box {
+    display: flex;
+    align-items: flex-start;
+    gap: 25px;
+    border-radius: 14px;
+    border: 1px solid rgba(36, 36, 36, 0.1);
+    background: var.$white-color;
+    width: 420px;
+    padding: 20px;
+    @media (max-width: 470px) {
+      width: 100%;
+    }
+  }
+  &__icon {
+    width: 60px;
+    height: 60px;
+    @extend %flex-center;
+    padding: 18px;
+    font-size: 24px;
+    background-color: rgba(36, 36, 36, 0.05);
+    border-radius: 30px;
+    opacity: 0.8;
+  }
+  &__top {
+    &__title {
+      color: var.$text-color;
+      font-family: "Open Sans600";
+      font-size: 38px;
+      line-height: 34px;
+      margin-bottom: 16px;
+    }
+    &__text {
+      max-width: 565px;
+      color: var.$text-color;
+      font-family: "Open Sans400";
+      font-size: 16px;
+      line-height: 24px;
+      opacity: 0.7;
+      margin-bottom: 40px;
+    }
+  }
+  &__row {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    @media (max-width: 830px) {
+      flex-direction: column;
+    }
+  }
+  &__row label {
+    color: #333;
+    font-family: "Open Sans400";
+    font-size: 16px;
+    opacity: 0.6;
+  }
+  &__control {
+    width: 345px;
+    border-radius: 12px;
+    border: 1px solid rgba(51, 34, 68, 0.1);
+    background: var.$white-color;
+    @media (max-width: 470px) {
+      width: 100%;
+    }
+  }
+  &__textarea {
+    width: 710px;
+    height: 150px;
+    border-radius: 14px;
+    border: 1px solid rgba(36, 36, 36, 0.1);
+    background: var.$white-color;
+    margin-bottom: 25px;
+    @media (max-width: 830px) {
+      width: 100%;
+    }
+  }
+  &__float {
+    display: flex;
+    justify-content: center;
+  }
+  &__float label {
+    color: #333;
+    font-family: "Open Sans400";
+    font-size: 16px;
+    opacity: 0.6;
+  }
+  &__btn {
+    padding: 18px 45px;
+    background-color: var.$primary-color;
+    color: var.$white-color;
+    border: 2px solid var.$primary-color;
+    border-radius: 39px;
+    background: var.$primary-color;
+    color: var.$white-color;
+    font-family: "Open Sans600";
+    font-size: 18px;
+    &:hover {
+      border: 2px solid var.$primary-color;
+    }
+  }
+  &__max {
+    text-align: center;
+    margin-bottom: 40px;
+    color: #000;
+    font-family: "Cera Round Pro500";
+    font-size: 38px;
+    line-height: 130%; 
+    letter-spacing: 1.14px;
+    text-transform: capitalize;
+  }
+  &__iframe{
+    width: 100%;
+    height: 703px;
+  }
+}

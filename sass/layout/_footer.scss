@@ -1,0 +1,180 @@
+@use "../utils/variables" as var;
+@use "../utils/mixins" as mxn;
+@use "../utils/helpers";
+
+.footer {
+  background-color: var.$primary-color;
+  padding: 100px 0px 40px;
+  margin-top: 200px;
+  &__top {
+    max-width: 1406px;
+    padding: 64px 0px;
+    @extend %flex-center;
+    text-align: center;
+    margin-top: -290px;
+    background-color: var.$primary-color;
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    box-shadow: 22px 30px 95px 1px rgba(86, 86, 86, 0.2);
+    margin-bottom: 100px;
+  }
+  &__min__title {
+    color: var.$white-color;
+    font-variant-numeric: lining-nums tabular-nums;
+    font-family: "Cera Round Pro700";
+    font-size: 23px;
+    line-height: 130%;
+    letter-spacing: 0.92px;
+    text-transform: capitalize;
+    margin-bottom: 16px;
+  }
+  &__title {
+    color: var.$white-color;
+    font-variant-numeric: lining-nums tabular-nums;
+    font-family: "Cera Round Pro500";
+    font-size: 48px;
+    line-height: 130%;
+    letter-spacing: 1.44px;
+    text-transform: capitalize;
+    margin-bottom: 24px;
+    @media (max-width: 460px) {
+      font-size: 25px;
+      line-height: 35px;
+    }
+  }
+  &__text {
+    color: var.$white-color;
+    font-family: "Open Sans400";
+    font-size: 16px;
+    line-height: 175%;
+    letter-spacing: 0.64px;
+    margin-bottom: 64px;
+  }
+  &__form {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+    @media (max-width: 460px) {
+      flex-wrap: wrap;
+      padding: 0px 20px;
+    }
+  }
+  &__input {
+    width: 635px;
+    border-radius: 100px;
+    border: 1px solid rgba(245, 239, 219, 0.5);
+    padding: 12px 10px 12px 18px;
+    height: 52px;
+    background-color: transparent;
+    @media (max-width: 900px) {
+      width: 100%;
+    }
+  }
+  &__input::placeholder {
+    color: #aaa;
+    font-family: "Cera Round Pro500";
+    font-size: 16px;
+    line-height: 175%;
+    letter-spacing: 0.64px;
+    text-transform: capitalize;
+  }
+  &__btn {
+    color: var.$white-color;
+    font-family: "Cera Round Pro700";
+    font-size: 16px;
+    line-height: 175%;
+    letter-spacing: 0.64px;
+    padding: 12px 32px;
+    border-radius: 100px;
+    border: 1px solid #fff;
+    background-color: transparent;
+    height: 52px;
+    transition: all 500ms;
+    &:hover {
+      background-color: var.$white-color;
+      color: var.$primary-color;
+    }
+    @media (max-width: 460px) {
+      width: 100%;
+    }
+  }
+  &__bottom {
+    @extend %flex-between-center;
+    align-items: flex-start;
+    @media (max-width: 1120px) {
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 50px;
+    }
+  }
+  &__column {
+    @extend %flex-center;
+    text-align: center;
+    &__title {
+      color: var.$white-color;
+      font-family: "Cera Round Pro400";
+      font-size: 32px;
+      line-height: 130%;
+      letter-spacing: 1.28px;
+      text-transform: capitalize;
+      margin-bottom: 24px;
+    }
+    &__text {
+      max-width: 438px;
+      color: var.$white-color;
+      font-family: "Open Sans400";
+      font-size: 16px;
+      line-height: 26px;
+      letter-spacing: 0.64px;
+    }
+  }
+  &__phones {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  &__link {
+    color: var.$white-color;
+    font-family: "Open Sans400";
+    font-size: 16px;
+    line-height: 26px;
+    letter-spacing: 0.64px;
+    margin-top: 10px;
+  }
+  &__img {
+    width: 250px;
+    margin-bottom: 32px;
+  }
+  &__icons {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin: 45px 0px 80px;
+  }
+  &__icon {
+    color: var.$white-color;
+    font-size: 25px;
+  }
+  &__right__text {
+    max-width: 168px;
+    margin-bottom: 12px;
+    color: var.$white-color;
+    text-align: center;
+    font-family: "Open Sans400";
+    font-size: 16px;
+    line-height: 26px;
+    letter-spacing: 0.64px;
+  }
+  &__bottom__text {
+    color: var.$white-color;
+    font-family: "Open Sans400";
+    font-size: 16px;
+    line-height: 175%;
+    letter-spacing: 0.64px;
+    text-align: center;
+    @media (max-width: 1120px) {
+      margin-top: 50px;
+    }
+  }
+}

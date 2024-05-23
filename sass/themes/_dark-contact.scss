@@ -1,0 +1,51 @@
+@use "../utils/variables" as var;
+@use "../utils/mixins" as mxn;
+.dark body,
+.dark header,
+.dark nav,
+.dark main,
+.dark footer,
+.dark section {
+  background-color: #000 !important;
+}
+.dark h1,
+.dark h2,
+.dark h3,
+.dark h4,
+.dark h5,
+.dark h6,
+.dark a,
+.dark button,
+.dark p {
+  color: white;
+}
+.footer__top {
+  background-color: #000;
+  box-shadow: 0px 0px 15px 3px var.$white-color;
+}
+.dark #backtop .top-img {
+  box-shadow: 0px 0px 10px 5px var.$white-color;
+}
+.dark .contact__box{
+    background-color: #000;
+    box-shadow: 0px 0px 12px 5px var.$white-color;
+}
+.dark .contact__icon{
+    color: var.$white-color;
+    box-shadow: 0px 0px 5px 2px var.$white-color;
+}
+.dark .contact__right{
+    background-color: #000;
+    box-shadow: 0px 0px 15px 5px var.$white-color;
+}
+.dark .contact *{
+    background-color: transparent;
+}
+.dark .contact input, 
+.dark .contact textarea{
+    box-shadow: 0px 0px 5px 2px var.$white-color;
+} 
+.dark .contact input::placeholder, 
+.dark .contact textarea::placeholder{
+    color: transparent;
+}

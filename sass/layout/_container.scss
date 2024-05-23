@@ -1,0 +1,18 @@
+@use "../utils/variables" as var;
+@use "../utils/functions" as func;
+
+.container{
+    max-width: func.containerWidth(1920, 310, 20);
+    margin: 0px auto;
+    padding: 0px 20px;
+}
+.container-photo{
+    max-width: 1400px;
+    margin-left: auto;
+    padding: 0px 20px;
+}
+.container-about{
+    max-width: func.containerWidth(1920, 600, 20);
+    margin: 0px auto;
+    padding: 0px 20px;
+}

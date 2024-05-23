@@ -1,0 +1,250 @@
+@use "../base/fonts";
+@use "../layout/container";
+@use "../utils/functions" as func;
+@use "../utils/mixins" as mxn;
+@use "../utils/variables" as var;
+@use "../utils/helpers";
+@use "../global";
+@use "../themes/dark-menu";
+
+main {
+  padding: 170px 0px 150px;
+}
+.pack {
+  padding: 0px 0px 300px;
+  &__info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  &__top {
+    display: flex;
+    align-items: start;
+    justify-content: space-between;
+    @media (max-width: 1350px) {
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 30px;
+    }
+  }
+  &__box {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 36px;
+    row-gap: 52px;
+    @media (max-width: 900px) {
+      grid-template-columns: 1fr;
+    }
+  }
+  &__card {
+    padding: 30px 30px 50px;
+    @extend %flex-center;
+    text-align: center;
+    border-radius: 14px;
+    border: 1px solid rgba(36, 36, 36, 0.1);
+    background: var.$white-color;
+    @media (max-width: 460px) {
+      width: 100%;
+    }
+  }
+  &__img {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+  &__title {
+    max-width: 340px;
+    color: var.$text-color;
+    font-family: "Open Sans600";
+    font-size: 20px;
+    line-height: 30px;
+    margin-bottom: 30px;
+  }
+  &__text {
+    color: var.$primary-color;
+    font-family: "Open Sans700";
+    font-size: 28px;
+  }
+  &__left {
+    width: 428px;
+    padding: 50px 40px;
+    border-radius: 20px;
+    background: var.$primary-color;
+    @media (max-width: 460px) {
+      width: 100%;
+    }
+  }
+  &__link {
+    padding: 10px 30px;
+    border-radius: 100px !important;
+    background-color: transparent !important;
+    border: 1px solid var.$white-color;
+    color: var.$white-color;
+    font-family: "Open Sans600";
+    font-size: 16px;
+    line-height: 175%;
+    letter-spacing: 0.8px;
+    text-transform: capitalize;
+    margin-bottom: 20px;
+    transition: all 500ms;
+    &:hover {
+      background-color: var.$white-color !important;
+      color: var.$text-color !important;
+    }
+    &.active {
+      background-color: var.$white-color !important;
+      color: var.$text-color !important;
+    }
+    @media (max-width: 320px) {
+      padding: 10px 20px;
+      font-size: 14px;
+    }
+  }
+  &__max {
+    max-width: 348px;
+    margin-bottom: 40px;
+    color: var.$white-color;
+    font-family: "Cera Round Pro500";
+    font-size: 40px;
+    line-height: 54px;
+    text-transform: capitalize;
+    @media (max-width: 360px) {
+      font-size: 25px;
+      line-height: 40px;
+    }
+  }
+}
+
+// photo start
+.photo {
+  padding: 130px 0px;
+  background: #f4f4f4;
+  overflow-x: hidden;
+  &__info {
+    @extend %flex-between-center;
+    gap: 60px;
+  }
+  &__h3 {
+    color: var.$text-color;
+    font-family: "Cera Round Pro700";
+    font-size: 23px;
+    line-height: 130%;
+    letter-spacing: 0.92px;
+    text-transform: capitalize;
+    margin-bottom: 8px;
+  }
+  &__title {
+    color: #242424;
+    text-align: center;
+    font-family: "Cera Round Pro500";
+    font-size: 48px;
+    line-height: 130%;
+    letter-spacing: 1.44px;
+    text-transform: capitalize;
+    margin: 8px 0px 24px;
+  }
+  &__text {
+    max-width: 491px;
+    color: #aaa;
+    font-family: "Open Sans400";
+    font-size: 16px;
+    line-height: 175%;
+    letter-spacing: 0.64px;
+    margin-bottom: 24px;
+  }
+  &__link {
+    @include mxn.btn(
+      8px 32px,
+      var.$text-color,
+      100px,
+      1px solid var.$primary-color
+    ) {
+      &:hover {
+        background-color: var.$primary-color;
+        color: var.$white-color;
+      }
+    }
+  }
+  &__card {
+    position: relative;
+    transition: all 500ms;
+    width: 300px;
+  }
+  &__img {
+    width: 100%;
+    height: 100%;
+  }
+  &__team {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: url(../../asset/images/photo-black-bg.png) no-repeat
+      center/cover;
+    opacity: 0;
+    transition: all 500ms;
+  }
+  &__icon {
+    color: var.$white-color;
+    font-size: 50px;
+  }
+  &__card:hover &__team {
+    opacity: 1;
+  }
+}
+
+#team-carousel {
+  position: relative;
+  display: flex;
+  z-index: 3;
+}
+#team-carousel :is(.owl-prev, .owl-next) {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-color: red;
+  border: 2px solid #f53838;
+  transition: all 0.5s;
+  bottom: -80px;
+}
+#team-carousel .owl-prev {
+  right: 15%;
+}
+#team-carousel .owl-next {
+  opacity: 1;
+  right: 5%;
+  z-index: 1000;
+}
+
+#team-carousel .owl-dot span {
+  width: 30px;
+  height: 30px;
+  background: red;
+  transition: all 0.5s;
+}
+
+#team-carousel .owl-dot.active span {
+  width: 45px;
+  background: #f53838;
+}
+
+.owl-carousel.owl-drag .owl-item {
+  width: 300px !important;
+  margin-right: 32px;
+}
+#team-carousel .owl-stage {
+  display: flex;
+  z-index: 4;
+}

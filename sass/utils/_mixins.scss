@@ -1,0 +1,25 @@
+@use "../utils/variables" as var;
+
+@mixin btn(
+  $padding: 12px 32px,
+  $color: var.$white-color,
+  $radius: 100px 100px 100px 100px,
+  $border: 1px solid var.$white-color
+) {
+  display: inline-block;
+  padding: $padding;
+  border-radius: $radius;
+  border: $border;
+  transition: all 500ms;
+  font-family: "Open Sans600";
+  font-size: 16px;
+  line-height: 175%;
+  text-transform: capitalize;
+  background-color: transparent;
+  color: $color;
+  &:hover {
+    background-color: $color;
+    color: var.$primary-color;
+    @content;
+  }
+}
